@@ -1,0 +1,43 @@
+{% extends 'flatpages/default.html' %}
+ 
+{% block title %} Newslist {% endblock title %}
+ 
+{% block content %}
+<table>
+    <thead align="center">
+        <th>
+            Заголовок
+        </th>
+        <th>
+            Текст
+        </th>
+        <th>
+            Автор
+        </th>
+        <th>
+            Категория
+        </th>
+    </thead>
+    <tr>
+        <td>
+            {{ post.title|title }}
+        </td>
+        <td>
+            {{ post.categoryType.name|title }}
+        </td>
+        <td>
+            {{ post.text }}
+        </td>
+        <td>
+            {{ post.author }}
+        </td>
+        <td>
+            {{ news.postCategory.all }}
+        </td>
+
+        <tr>
+
+    </tr>
+
+</table>
+{% endblock content %}

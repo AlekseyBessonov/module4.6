@@ -1,0 +1,26 @@
+
+{% extends "main.html" %}
+{% block title %}
+Страница редактирования пользователя {{ authorUser }}
+{% endblock title %}
+{% block h1 %}Редактирование профиля{% endblock h1 %}
+{% block h1-description %}{% endblock h1-description %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form }} <!-- Теперь нам нужна только готовая форма и кнопка -->
+    <input class="btn btn-primary" type="submit" value="Редактировать профиль">
+    </form>
+    <hr>
+
+    {% if is_not_premium %}
+
+        <button> <a href="/../sign/upgrade/"> Хочу Premium!</a> </button>
+
+    {% endif %}
+
+     <hr>
+        <button> <a href="/../sign/logout/">Выйти</a> </button>
+
+
+{% endblock content %}

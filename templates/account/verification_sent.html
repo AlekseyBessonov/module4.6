@@ -1,0 +1,13 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block content %}
+    <h1>{% trans "Проверьте вашу почту и завершите регистрацию" %}</h1>
+
+    <p>{% blocktrans %}Мы послали на указанную Вами почту письмо о верификации. </p>
+        <p> Если письмо не пришло, напишите нам.{% endblocktrans %}</p>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'flatpages/default.html' %}
+{% load lex_filter %}
+
+{% block content %}
+    <h1>Новость № {{ post.id }}</h1>
+
+    <h3>{{ time_now|date:'M d Y' }}</h3>
+    <hr>
+        <table align="center">
+             <tr>
+
+                    {{ post.title }}
+
+             </tr>
+            <p>
+             <tr>
+                    {{ post.text|censor }}
+             </tr>
+            <p>
+                <tr>
+                    {{ post.createTime|date:'M d Y H:m' }}
+
+            </tr>
+
+
+
+        </table>
+{% endblock content %}
