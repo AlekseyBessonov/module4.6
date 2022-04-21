@@ -36,18 +36,18 @@ def my_job():
                     'full_url': full_url,
                 }
             )
-            #msg = EmailMultiAlternatives(
-                #subject=f'Здравствуй, Мы подготовили дайджест статей за неделю с нашего портала!',
-               # body='',
+            msg = EmailMultiAlternatives(
+                subject=f'Здравствуй, Мы подготовили дайджест статей за неделю с нашего портала!',
+                body='',
 
-               # from_email='',
-              #  to=[f'{u.email}'],  # это то же, что и recipients_list
-             #                          )
-            #msg.attach_alternative(html_content, "text/html")  # добавляем html
+                from_email='',
+                to=[f'{u.email}'],  # это то же, что и recipients_list
+                                      )
+            msg.attach_alternative(html_content, "text/html")  # добавляем html
 
-            #msg.send()  # отсылаем
-            #print(list_of_posts)
-            print(full_url)
+            msg.send()  # отсылаем
+            print(list_of_posts)
+            #print(full_url)
 
 # функция, которая будет удалять неактуальные задачи
 def delete_old_job_executions(max_age=604_800):
@@ -65,7 +65,7 @@ class Command(BaseCommand):
         # добавляем работу нашему задачнику
         scheduler.add_job(
             my_job,
-            trigger=CronTrigger(second="*/10"),
+            trigger=CronTrigger(day="*/7"),
             # То же, что и интервал, но задача тригера таким образом более понятна django
             id="my_job",  # уникальный айди
             max_instances=1,

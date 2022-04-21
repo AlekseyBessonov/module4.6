@@ -17,10 +17,9 @@ from django.dispatch import receiver
 def notify_post_create(sender, instance, **kwargs):
 
     subject = f'{instance.title}'
-
+    message = f'{instance.text} '
     userlist = []
-    link = ''.join(['http://', get_current_site(None).domain, ':8000'])
-    message = f'Перейдите {link} чтобы прочесть стаьтю.'
+
     for usr in User.objects.all():
         subscribers = usr.email
         #print(11, subscribers)
