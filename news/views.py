@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail, mail_managers
 from django.http import request
 from django.shortcuts import render, redirect
@@ -14,9 +15,12 @@ from django.dispatch import receiver
 
 @receiver(post_save, sender=Post)
 def notify_post_create(sender, instance, **kwargs):
+
     subject = f'{instance.title}'
-    message = f'{instance.text}'
+
     userlist = []
+    link = ''.join(['http://', get_current_site(None).domain, ':8000'])
+    message = f'Перейдите {link} чтобы прочесть стаьтю.'
     for usr in User.objects.all():
         subscribers = usr.email
         #print(11, subscribers)

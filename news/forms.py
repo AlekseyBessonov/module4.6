@@ -10,6 +10,8 @@ class NewsForm(ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'text', 'categoryType', 'author', 'postCategory']
+        labels = {'author': 'Автор:', 'categoryType': 'Тип публикации:', 'postCategory': 'Категория:', 'title': 'Заголовок:',
+                  'text': 'Текст:'}
 
 
 

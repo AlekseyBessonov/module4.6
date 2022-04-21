@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'news',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'django_apscheduler',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -164,4 +165,6 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER + '@yandex.ru'
 SERVER_EMAIL = EMAIL_HOST_USER+'@yandex.ru'
 
-MANAGERS = [('administrator', 'administrator@phz.stniva.ru'), ('hellraver', ' hellraver@inbox.ru')]
+###django-sheduller###
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds

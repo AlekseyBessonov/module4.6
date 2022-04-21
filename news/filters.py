@@ -21,6 +21,6 @@ class NewsFilter(FilterSet):
         fields = {
         'title':['icontains'],
         'postCategory': ['exact'],
-        'author': ['exact'],
+        'author': ['exact' ],
 
     }
