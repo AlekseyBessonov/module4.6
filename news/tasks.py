@@ -29,7 +29,7 @@ def SendEmail():
             }
         )
         msg = EmailMultiAlternatives(
-            subject=f'Здравствуй, Мы подготовили дайджест статей за неделю с нашего портала!',
+            subject=f'Здравствуй, Мы подготовили дайджест статей за неделю с нашего портала! Redis task',
             body='',
 
             from_email='',
@@ -38,4 +38,4 @@ def SendEmail():
         msg.attach_alternative(html_content, "text/html")  # добавляем html
 
         msg.send()  # отсылаем
-        #print(list_of_posts)
+        print(list_of_posts)
