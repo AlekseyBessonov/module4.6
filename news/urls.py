@@ -1,9 +1,10 @@
 from django.urls import path
 
-from .views import NewsList, PostDetailView, PostCreateView, PostDeleteView, PostUpdateView, List, AuthorDetail
+from .views import NewsList, PostDetailView, PostCreateView, PostDeleteView, PostUpdateView, List, AuthorDetail, RedisView
 # импортируем наше представление
 
 urlpatterns = [
+        path('test/', RedisView.as_view()),
         path('', List.as_view()),  #ссылка на список
         path('search/', NewsList.as_view()), # ссылк ана страницу поиска
         path('<int:pk>/', PostDetailView.as_view(), name='post_detail'),  # Ссылка на подробности

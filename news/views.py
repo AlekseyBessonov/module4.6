@@ -1,4 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.views import View
+from .tasks import hello
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail, mail_managers
@@ -101,3 +104,9 @@ class AuthorDetail(DetailView):
     model = Author
     template_name = 'sign/author.html'
     context_object_name = 'author'
+
+
+class RedisView(View):
+    def get(self, request):
+        hello.delay()
+        return HttpResponse('Hello!')
